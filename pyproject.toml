@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stablecoin-premiums"
+version = "0.1.0"
+description = "Utilities to fetch P2P stablecoin quotes and FX rates, then compute premiums/spreads across fiat markets"
+readme = {file = "README.md", content-type = "text/markdown"}
+authors = [
+    {name = "Elem Oghenekaro", email = "elem@elemoghenekaro.com"}
+]
+license = {text = "MIT"}
+keywords = ["stablecoin", "crypto", "fx", "premiums", "p2p", "binance", "finance"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.31.0",
+    "pandas>=2.2.0",
+    "numpy>=1.25.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+]
+notebooks = [
+    "jupyter>=1.0.0",
+]
+
+[project.scripts]
+stablecoin-premiums = "stablecoin_premiums.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/e3o8o/stablecoin-premiums"
+Repository = "https://github.com/e3o8o/stablecoin-premiums"
+Issues = "https://github.com/e3o8o/stablecoin-premiums/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true

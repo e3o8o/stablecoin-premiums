@@ -1,0 +1,12 @@
+# Core HTTP client
+requests>=2.31.0
+
+# Data handling
+pandas>=2.2.0
+numpy>=1.25.0
+
+# Environment variable management
+python-dotenv>=1.0.1
+
+# Optional: Notebooks for exploration and examples
+jupyter>=1.0.0
